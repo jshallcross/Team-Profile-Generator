@@ -4,7 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 
 
-class Team {
+class MakeTeam {
     constructor() {
         this.teamMembers = 0;
         this.team = [];
@@ -12,8 +12,7 @@ class Team {
     newTeam() {
         if (this.teamMembers === 0) {
             this.makeManager();
-        }
-        
+        }    
     }
 
     makeManager() {
@@ -43,6 +42,7 @@ class Team {
                 this.teamMembers += 1;
                 this.team.push(manager);
                 console.log(manager);
+                this.addTeamMember();
         })
     }
 
@@ -56,20 +56,81 @@ class Team {
             }
         ]).then(answer => {
             if(answer.choice === 'Engineer'){
-                //this.makeEngineer();
+                this.makeEngineer();
             } else if (answer.choice === 'Intern'){
-                //this.makeIntern();
+                this.makeIntern();
             } else if (answer.choice === 'None'){
-                //this.writeFile();
+                //this.makeHTML();
             } else {
-                addTeamMember();
+                this.addTeamMember();
             }     
         })
     }
+    makeEngineer() {
+        inquirer
+            .prompt([{
+                type: 'text',
+                name: 'name',
+                message: "What is your Engineer's name?"
+            },
+            {
+                type: 'text',
+                name: 'idNumber',
+                message: "What is your Engineer's employee ID number?"
+            },
+            {
+                type: 'text',
+                name: "email",
+                message: "What is your Engineer's email address?"
+            },
+            {    
+                type: 'text',
+                name: 'github',
+                message: "What is your Engineer's GitHub username?"
+            }
+            ]).then(answers => {
+                const engineer = new Engineer(answers.name, answers.idNumber, answers.email, answers.github);
+                this.teamMembers += 1;
+                this.team.push(engineer);
+                console.log(engineer);
+                this.addTeamMember();
+        })
+    }
+    makeIntern() {
+        inquirer
+            .prompt([{
+                type: 'text',
+                name: 'name',
+                message: "What is your Intern's name?"
+            },
+            {
+                type: 'text',
+                name: 'idNumber',
+                message: "What is your Intern's employee ID number?"
+            },
+            {
+                type: 'text',
+                name: "email",
+                message: "What is your Intern's email address?"
+            },
+            {    
+                type: 'text',
+                name: 'school',
+                message: "What is your Intern's school?"
+            }
+            ]).then(answers => {
+                const intern = new Intern(answers.name, answers.idNumber, answers.email, answers.school);
+                this.teamMembers += 1;
+                this.team.push(intern);
+                console.log(intern);
+                this.addTeamMember();
+        })
+    }
+
 
 }
 
-let team = new Team();
+let team = new MakeTeam();
 team.newTeam();
 
 
