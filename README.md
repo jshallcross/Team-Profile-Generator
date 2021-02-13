@@ -24,8 +24,8 @@ You Tube Link: (https://youtu.be/1ZNt5KhaTtw)
 
 ## Usage
 ---  
-Easily create a profile of your work team to access their information. Created file found in the dist folder.
+Easily create a profile of your work team to access their information. Created file found in the dist folder under the name team.html.
 
 ## Contributions
 ---
-Stack overflow helped sort out the RegExp email validator. This
+Stack overflow helped sort out the RegExp email validator.
