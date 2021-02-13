@@ -2,19 +2,30 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
+const fs = require("fs");
+const path = require("path");
+const makeHtml = require("./lib/htmlTemplate");
+
+const outputFolder = path.resolve(__dirname, "output")
+const outputFile = path.join(outputFolder, "team.html");
 
 
-class MakeTeam {
+
+
+class Team {
     constructor() {
         this.teamMembers = 0;
         this.team = [];
+        
     }
     newTeam() {
+        
         if (this.teamMembers === 0) {
             this.makeManager();
+            
         }    
     }
-
+    
     makeManager() {
         inquirer
             .prompt([{
@@ -41,7 +52,6 @@ class MakeTeam {
                 const manager = new Manager(answers.name, answers.idNumber, answers.email, answers.officeNumber);
                 this.teamMembers += 1;
                 this.team.push(manager);
-                console.log(manager);
                 this.addTeamMember();
         })
     }
@@ -60,7 +70,8 @@ class MakeTeam {
             } else if (answer.choice === 'Intern'){
                 this.makeIntern();
             } else if (answer.choice === 'None'){
-                //this.makeHTML();
+                //make html
+                this.display();
             } else {
                 this.addTeamMember();
             }     
@@ -92,7 +103,6 @@ class MakeTeam {
                 const engineer = new Engineer(answers.name, answers.idNumber, answers.email, answers.github);
                 this.teamMembers += 1;
                 this.team.push(engineer);
-                console.log(engineer);
                 this.addTeamMember();
         })
     }
@@ -122,15 +132,25 @@ class MakeTeam {
                 const intern = new Intern(answers.name, answers.idNumber, answers.email, answers.school);
                 this.teamMembers += 1;
                 this.team.push(intern);
-                console.log(intern);
                 this.addTeamMember();
+                
         })
     }
 
+    display() {
+        fs.writeFile(outputFile, makeHtml(this.team), function (err){
+            if (err) {
+                console.log(err)
+            } else {
+                console.log("Made file!");
+            }
+        });
+    }
 
 }
 
-let team = new MakeTeam();
+
+let team = new Team();
 team.newTeam();
 
 

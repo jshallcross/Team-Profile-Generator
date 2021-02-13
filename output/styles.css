@@ -1,0 +1,10 @@
+.card-header {
+    background-color: beige; 
+}
+.card {
+    margin-right: 15px;
+    margin-left: 15px;   
+}
+.card-body {
+    background-color:lightskyblue;
+}
