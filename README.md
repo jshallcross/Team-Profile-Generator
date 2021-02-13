@@ -3,15 +3,24 @@
 
 ## Grading Requirements
 ---
+YouTube Video Link: (https://youtu.be/ZGmfErWGRjE)  
 
-
+Below is a screenshot of the completed HTML file.   
+There is also a copy in the dist folder in the repository.
+![Screenshot of Generated HTML](./dist/screenshot.png)
 ## Description
 ---   
 User input is turned into a team profile website. All fields are required to be entered. Additionally the email must be a valid form.
 
 ## Installation
 ---  
-Install node. Run by typing index.js in the terminal.
+Install node. Run by typing index.js in the terminal.   
+
+## Testing
+--- 
+All tests passing video.
+You Tube Link: (https://youtu.be/1ZNt5KhaTtw)
+
 
 ## Usage
 ---  
