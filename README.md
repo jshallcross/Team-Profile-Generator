@@ -1,4 +1,7 @@
 # Team-Profile-Generator
+This was the week 10 challenge from the University of Toronto School of Continued Studies Coding Boot Camp. The challenge was to build a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person. We had to write unit tests for part of our code and make sure they all pass. I received a mark of 100%.
+
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Grading Requirements
